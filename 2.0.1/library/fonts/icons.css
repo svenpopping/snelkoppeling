@@ -1,0 +1,84 @@
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'Pictos';
+    src: url('../fonts/Pictos.eot');
+    src: url('../fonts/Pictos.eot?#iefix') format('embedded-opentype'), url('../fonts/Pictos.svg#Pictos') format('svg'), url('../fonts/Pictos.woff') format('woff'), url('../fonts/Pictos.ttf') format('truetype');
+}
+[data-icon],
+i {
+    display: inline-block; position: relative;
+    height: 1em; width: 1em;
+    font-size: inherit; font-weight: normal;
+    font-style: normal;
+    text-align: center;
+    line-height: 1;
+    vertical-align: middle;
+    zoom: 1;
+}
+[data-icon]:before,
+i:before {
+    font-family: 'Pictos';
+    speak: none;
+}
+[data-icon]:before { content: attr(data-icon) }
+.no-fontface [data-icon],
+.no-fontface i { display: none }
+.no-fontface [data-icon]:before,
+.no-fontface i:before {
+    content: '';
+    font-family: sans-serif;
+}
+.icon-16 { font-size: 16px }
+.icon-32 { font-size: 32px }
+.icon-64 { font-size: 64px }
+.icon-text { margin-right: 6px }
+.icon-text-rev { margin-left: 6px }
+i.arrow-left:before,
+i.prev:before { content: "\2190" }
+i.arrow-right:before,
+i.next:before { content: "\2192" }
+i.close:before { content: "\2613" }
+i.love:before,
+i.heart:before { content: "\2665" }
+i.cloud:before { content: "\2601" }
+i.star:before { content: "\2605" }
+i.email:before { content: "\2709" }
+i.music:before { content: "\266b" }
+i.anchor:before { content: "\2693" }
+i.cancel:before { content: "\2612" }
+i.tools:before { content: "\2692" }
+i.flag:before { content: "\2691" }
+i.tag:before { content: "\2326" }
+i.alert:before { content: "\21" }
+i.info:before { content: "\69" }
+i.question:before { content: "\3f" }
+i.messages:before { content: "\4d" }
+i.facebook:before { content: "\66" }
+i.twitter:before { content: "\74" }
+i.marker:before { content: "\25bc" }
+i.phone:before { content: "\260e" }
+i.hot:before { content: "\2600" }
+i.settings:before { content: "\2739" }
+i.users:before { content: "\55" }
+i.picture:before { content: "\50" }
+i.view:before { content: "\45" }
+i.link:before { content: "\221e" }
+i.resize:before { content: "\25e2" }
+i.home:before { content: "\48" }
+i.news:before { content: "\4e" }
+i.calendar:before { content: "\2610" }
+i.rss:before { content: "\52" }
+i.food:before { content: "\46" }
+i.nucleus:before { content: "\269b" }
+i.bookmark:before { content: "\42" }
+i.search:before { content: "\53" }
+i.support:before { content: "\26aa" }
+i.shopping:before { content: "\24" }
+i.bell:before { content: "\41" }
+i.iphone:before { content: "\49" }
+i.time:before { content: "\231a" }
+i.world:before { content: "\47" }
+i.layers:before { content: "\4c" }
+i.graph:before { content: "\43" }
+i.edit:before { content: "\270d" }

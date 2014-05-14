@@ -1,0 +1,23 @@
+fieldset.prev-next {
+	margin: 0; padding: 0;
+}
+fieldset.prev-next ul {
+	display: inline-block;
+	list-style-type: none;
+	margin: 0; padding: 0;
+	width: 100%;
+}
+fieldset.prev-next ul li {
+	display: inline-block;
+}
+fieldset.prev-next ul li.prev {
+	float: left;
+}
+fieldset.prev-next ul li.next {
+	float: right;
+}
+fieldset.prev-next ul li a {
+	display: inline-block;
+	text-align: center;
+	width: 65px;
+}

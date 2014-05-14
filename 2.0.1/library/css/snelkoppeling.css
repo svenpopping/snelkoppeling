@@ -1,0 +1,219 @@
+
+.landing__background {
+	background: black url('//snelkoppeling.info/images/background.jpg') repeat center top;
+	width: 100%;
+	float: left;
+	left: 0;
+	position: absolute;
+	display: block;
+	padding: 170px 0;
+}
+.landing__box {
+	max-width: 850px;
+	height: 300px;
+	margin: 0 auto 170px;
+	background-color: rgba(255, 255, 255, 0.85);
+	color: black;
+	padding: 20px;
+}
+
+.landing__box h2 {
+	margin-bottom: 20px;
+}
+
+.landing__box fieldset,
+.questions-form fieldset { border: none }
+
+.form-control {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+fieldset input {
+	display: inline-block !important;
+}
+
+span.form-help {
+	display: inline-block;
+	font-size: .8em;
+	color: #d9534f;
+	margin: 0px 0px 0px 10px;
+}
+
+.landing__box fieldset {
+	margin-bottom: 20px;
+}
+.structure-list label {
+	float: none !important;
+}
+
+.structure-list ul {
+	margin: 5px 0 0 0 !important;
+}
+
+.questions-form fieldset>label {
+	color: #d9291e;
+}
+
+.media{display:block}.media__img{float:left;margin-right:24px}.media__img--rev{float:right;margin-left:24px}.media__img img,.media__img--rev img{display:block}.media__body{overflow:hidden}.media__body,.media__body>:last-child{margin-bottom:0}.islet .media__img{margin-right:12px}
+
+.clear{
+	clear: both;
+}
+
+.float-left {
+	float: left;
+	padding-right: 20px;
+}
+
+dd.matches{
+	float: left;
+}
+dd.matches .info{
+	float: left;
+}
+.profile-picture {
+	width: 292px !important;
+	border: 4px solid #ccc;
+}
+
+.profile-picture-small {
+	float: left;
+	width: 46px !important;
+	border: 2px solid #ccc;
+	margin-right: 10px;
+}
+dt.name{
+	cursor: pointer;
+}
+dt.name:hover{
+	color: rgb(100, 100, 100);
+}
+.info-matches{
+	margin-top: 10px;
+	color: rgb(68, 68, 68);
+}
+/* progress bar base */
+.progress-bar__container { 
+  width: 570px;
+  height: 16px;
+  display: block;
+  position: relative;
+  background-color: #ccc;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+/* code for the inner (colorful) part of the bar */
+.progress-bar__container .progress { 
+  display: block;
+
+  width: 100%;
+  height: 16px;
+  background: #d9291e;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+}
+
+.score {display:inline-block;min-width:1.0em;
+	text-align:center;background-color:#d9291e;color:#fff;border-radius:100px; padding-top: 2px;
+padding: 2px 5px;
+}
+
+body {
+	/*background: black url('//snelkoppeling.info/images/background.jpg') repeat center top;*/
+}
+
+.wrapper {
+	background: white;
+	padding: 22px 20px;
+	box-shadow: 0px 0 40px rgba(0,0,0,.6);
+	z-index: 10;
+	position: relative;
+}
+
+@media all and (max-width: 660px) {
+
+	
+	.button {
+		margin: 5px;
+		display: inline-block;
+	}
+	
+	.wrapper {
+		width: 300px;
+		padding: 10px 5px !important;
+	}
+	.progress-bar__container { 
+		width: 240px;
+	}
+	
+	
+	.landing__background {
+		background: white;
+		width: 100%;
+		float: left;
+		left: 0;
+		position: absolute;
+		display: block;
+		padding: 20px 0;
+	}
+	
+	.columns__profile>*{
+		width: 150px !important;
+		display: inline-block !important;
+		float: left;
+	}
+	
+	.profile-picture {
+		width: 120px !important;
+	}
+	
+	dd.matches .info{
+		width: 240px;
+	}
+	
+	.landing__box {
+		background-color: rgba(0, 0, 0, .1);
+		height: auto;
+		margin: 0;
+	}
+}
+
+@media all and (min-width: 900px) {
+	.wrapper {
+		padding: 22px 105px !important;
+	}
+}
+
+#wrapper>header nav {
+	margin: 24px 0 0;
+	text-align: right;
+}
+
+.tagline {
+	font-weight: normal;
+	font-style: italic;
+	font-size: 14px;
+}
+
+hr {
+	border-top: 2px solid #ddd;
+}

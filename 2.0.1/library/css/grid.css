@@ -1,0 +1,68 @@
+.wrapper {
+    display: block;
+    min-width: 300px;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2em 10px 0;
+}
+.wrapper.large { max-width: 980px }
+
+.columns {
+	width: auto;
+	max-width: 680px;
+	list-style: none;
+	margin: 0 -2.941%;
+	overflow: hidden;
+	letter-spacing: -.25em;
+}
+
+.columns>* {
+	margin: 0 2.941%;
+	display: inline-block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	vertical-align: top;
+	letter-spacing: 0;
+}
+
+.columns.three>* { width: 27.451% }
+
+.columns>*, .columns.two>* { width: 44.118% }
+
+.wrapper.large .columns {
+	max-width: 1020px;
+  	margin: 0 -1.961%;
+}
+
+.wrapper.large .columns>* { margin: 0 1.961% }
+
+.wrapper.large .columns.three>* { width: 29.412% }
+
+.wrapper.large .columns>*, .wrapper.large .columns.two>* { width: 46.078% }
+
+@media only screen and (max-width : 768px) {
+	.wrapper.large { max-width: 640px }
+	
+	.wrapper.large .columns {
+		max-width: 680px;
+	  	margin: 0 -2.941%;
+	}
+	.wrapper.large .columns>* { margin: 0 2.941% }
+	
+	.wrapper.large .columns.three>* { width: 27.451% }
+	
+	.wrapper.large .columns.two>* { width: 44.118% }
+}
+
+@media only screen and (max-width : 480px) {
+	.wrapper { max-width: 300px }
+	
+	.columns { margin: 0 }
+	
+	.columns>* {
+	  margin: 0;
+	  width: 100% !important;
+	}
+
+}
