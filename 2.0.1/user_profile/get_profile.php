@@ -7,9 +7,6 @@ if ($login->isUserLoggedIn() == false) {
 }
 
 require_once('../config.php');
-if (isset($_SESSION['change_password']) AND $_SESSION['change_password'] == 1) {
-  echo "Please change your password";
-};
 
 if( isset($_GET['user']) ) {
   if($_SESSION['verified'] == 1) {

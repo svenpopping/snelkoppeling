@@ -102,6 +102,10 @@ class Login
                         if(isset($result_row->admin) AND $result_row->admin == 1) {
                             $_SESSION['enable_admin'] = 1;
                         }
+
+                        $user_password_hash = password_hash($_POST['user_password'], PASSWORD_DEFAULT);
+                        $sql = "UPDATE gegevens SET password='".$user_password_hash."' WHERE username = '" . $user_name . "' OR email = '" . $user_name . "';";
+                        $this->db_connection->query($sql);
                     } else {
                         $this->errors[] = "Wrong password. Try again.";
                     }
