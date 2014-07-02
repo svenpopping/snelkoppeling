@@ -84,6 +84,12 @@
   }
   ?>
     </ul>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("fieldset ul li.next a").addClass("button");
+        $("fieldset ul li.prev a").addClass("button");
+      });
+    </script>
     <fieldset class="form-actions prev-next" style="margin-top: 20px;">
       <ul>
         <li class="prev"></li>
@@ -91,3 +97,4 @@
       </ul>
     </fieldset>
   </dl>
+
