@@ -87,7 +87,7 @@
             <!-- Wanneer een gebruiker is ingelogd een Loguit button geven en anders een Homepagina button -->
             <?php 
               if (isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] == 1) {
-                      echo '<a href="//localhost/snelkoppeling/2.0.1/login/index.php?logout" class="button">Uitloggen</a>';
+                      echo '<a href="//localhost/snelkoppeling/2.0.1/login/index.php?logout" class="button" style="float: right;">Uitloggen</a>';
                   }
              ?>
           </nav>
