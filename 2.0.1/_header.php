@@ -25,16 +25,16 @@
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
       <meta http-equiv="cleartype" content="on" />
-      
-      
-
+        
         <title>De beste gratis dating matches uit jouw omgeving! | Snelkoppeling Dating</title> <!-- Pagina titel -->
     
         <link rel="stylesheet" href="//localhost/snelkoppeling/2.0.1/library/css/style.css"> <!-- Laad de reset stylesheet. -->
-      <link rel="stylesheet" href="//localhost/snelkoppeling/2.0.1/library/css/snelkoppeling.css"> <!-- Laad de stylesheet. -->
+        <link rel="stylesheet" href="//localhost/snelkoppeling/2.0.1/library/css/snelkoppeling.css"> <!-- Laad de stylesheet. -->
         
         
         <link rel="shortcut icon" href="//localhost/snelkoppeling/2.0.1/library/images/favicon.ico">
+        <link rel="stylesheet" href="//localhost/snelkoppeling/2.0.1/library/css/get_matches.css">
+
     <link rel="apple-touch-icon-precomposed" href="//localhost/snelkoppeling/2.0.1/library/images/favicon.ico">
     <meta name="apple-mobile-web-app-title" content="Snelkoppeling">
     

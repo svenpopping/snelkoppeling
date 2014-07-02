@@ -1,17 +1,15 @@
 <?php
   require_once("../login/classes/Login.php");
+  require_once('../config.php');
+
+  // Check if user logged in
   $login = new Login();
 
-  // if ($login->isUserLoggedIn() == false) {
-  //  header("Location: //localhost/snelkoppeling/2.0.1/");
-  // }
+  if ($login->isUserLoggedIn() == false) {
+    header("Location: //localhost/snelkoppeling/2.0.1/");
+  }
 
-  require_once('../config.php');
-  // First drop the existing view
-  $mysqli->query("DROP VIEW select_all_matches") or die($mysqli->error);
-
-  // The query to create a new view
-
+  // Enanble for admins to see other peoples matches
   if(isset($_SESSION['enable_admin']) && $_SESSION['enable_admin'] === 1) {
     if(isset($_REQUEST['get_matches'])) {
       $user_id = $_REQUEST['person_id'];
@@ -22,6 +20,7 @@
     $user_id = $_SESSION['user_id'];
   }
 
+  // The query to create a new view with all the matches of the user
   $create_view_select_all_match_ids_query = "CREATE VIEW select_all_matches AS
                         SELECT matches.B AS match_id, matches.match
                           FROM matches
@@ -40,10 +39,13 @@
   } else {
     $get_matches_query = "SELECT * FROM gegevens INNER JOIN select_all_matches ON gegevens.id = select_all_matches.match_id LIMIT 0, 10";
   }
-  $get_matches = $mysqli->query($get_matches_query) or die($mysqli->error);
-  ?>
 
-  <link rel="stylesheet" href="../library/css/get_matches.css">
+  // Execute query
+  $get_matches = $mysqli->query($get_matches_query) or die($mysqli->error);
+
+  // Drop view
+  $mysqli->query("DROP VIEW select_all_matches") or die($mysqli->error);
+  ?>
 
   <script type="text/javascript" src="//localhost/snelkoppeling/2.0.1/library/jquery/jquery.bxslider.js"> </script>
   <script type="text/javascript" src="//localhost/snelkoppeling/2.0.1/library/jquery/get_matches.js"></script>
