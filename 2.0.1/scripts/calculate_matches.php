@@ -16,9 +16,10 @@
 
   require_once('../config.php');
   require_once('../functions.php');
+  
   /*
-    Returns a query with a type of gender
-    @param gender The gender which need to be returned (0 for only men, 1 for only women and % for both )
+   * Returns a query with a type of gender
+   * @param gender The gender which need to be returned (0 for only men, 1 for only women and % for both )
   */
   function generate_query($gender) {
     global $person_array_data;
