@@ -68,6 +68,6 @@ if( isset($_GET['user']) ) {
   </div>
   <dl role="list" style="width: 100%">
     <dt>Over jezelf</dt>
-      <dd class="about_yourself"><?=$personal_info['about_me'] ?></dd>
+      <dd class="about_yourself" style="padding: 0 10px 0 0;"><?=$personal_info['about_me'] ?></dd>
       <a href="" class="about_yourself_save button" style="display: inline-block;">Save</a>
     </dl>

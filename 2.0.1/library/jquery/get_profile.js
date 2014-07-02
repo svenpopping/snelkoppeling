@@ -18,7 +18,7 @@ $(document).ready(function() {
       console.log('SAVED');
     });
 
-    $('.about_yourself_textarea').replaceWith('<dd class="about_yourself">' + text + '</dd>');
+    $('.about_yourself_textarea').replaceWith('<dd class="about_yourself" style="padding: 0 10px 0 0;">' + text + '</dd>');
     $('.about_yourself_save').hide();
 
     event.preventDefault();
