@@ -18,14 +18,20 @@ echo '<div role="alert" class="info"><strong>Let op!</strong><small>E-mails vers
 <script type="text/javascript">
   $(document).ready(function() {
     $('a.back').hide();
+
+    var person_id = "<?= (isset($_GET['person_id'])) ? '?person_id='.$_GET['person_id'].'&get_matches=true' : ''; ?>";
+    var user = "<?= (isset($_GET['user'])) ? '?user='.$_GET['user'].'&get_profile=true' : ''; ?>";
     
-    $("#columns__profile").load("http://localhost/snelkoppeling/2.0.1/user_profile/get_profile.php", function(response, status, xhr) {
+    var url_profile = "http://localhost/snelkoppeling/2.0.1/user_profile/get_profile.php" + user;
+    var url_matches = "http://localhost/snelkoppeling/2.0.1/user_profile/get_matches.php" + person_id;
+
+    $("#columns__profile").load(url_profile, function(response, status, xhr) {
       if (status == "error") {
         var msg = "Sorry but there was an error: ";
         console.log(msg + xhr.status + " " + xhr.statusText);
       }
     });
-    $("#columns__matches").load("http://localhost/snelkoppeling/2.0.1/user_profile/get_matches.php", function(response, status, xhr) {
+    $("#columns__matches").load(url_matches, function(response, status, xhr) {
       if (status == "error") {
         var msg = "Sorry but there was an error: ";
         console.log(msg + xhr.status + " " + xhr.statusText);

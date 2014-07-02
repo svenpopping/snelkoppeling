@@ -8,19 +8,41 @@ if ($login->isUserLoggedIn() == false) {
 
 require_once('../config.php');
 
-if( isset($_GET['user']) ) {
+if(isset($_SESSION['enable_admin']) && $_SESSION['enable_admin'] === 1) {
+  if(isset($_REQUEST['get_profile'])) {
+    $user_name = $_REQUEST['user'];
+  } else {
+    if(isset($_GET['user'])) {
+      $user_name = $_GET['user'];
+    } else {
+      $user_id = $_SESSION['user_name'];
+      $user_email = $_SESSION['user_email'];
+    }
+  }
+} else {
+  if(isset($_GET['user'])) {
+    $user_id = $_SESSION['user_id'];
+  } else {
+    $user_id = $_SESSION['user_name'];
+    $user_email = $_SESSION['user_email'];
+  }
+}
+
+if (isset($_SESSION['enable_admin']) && $_SESSION['enable_admin'] === 1 && isset($_REQUEST['user'])) {
+  $personal_info = $mysqli->query('SELECT * FROM gegevens WHERE username="'.$user_name.'"')->fetch_array(MYSQLI_ASSOC);
+} else if( isset($_GET['user']) ) {
   if($_SESSION['verified'] == 1) {
-    $check_if_match = $mysqli->query('SELECT * FROM matches WHERE (A = "'.$_SESSION['user_id'].'" AND B = (SELECT id FROM gegevens WHERE username="'.$_GET['user'].'")) OR (B = "'.$_SESSION['user_id'].'" AND A = (SELECT id FROM gegevens WHERE username="'.$_GET['user'].'"))')->num_rows or die($mysqli->error);
+    $check_if_match = $mysqli->query('SELECT * FROM matches WHERE (A = "'.$user_id.'" AND B = (SELECT id FROM gegevens WHERE username="'.$_GET['user'].'")) OR (B = "'.$user_id.'" AND A = (SELECT id FROM gegevens WHERE username="'.$_GET['user'].'"))')->num_rows or die($mysqli->error);
     if($check_if_match == 1) {
       $personal_info = $mysqli->query('SELECT * FROM gegevens WHERE username="'.$_GET['user'].'"')->fetch_array(MYSQLI_ASSOC);
     } else {
       echo "error";
     }
   } else {
-    $personal_info = $mysqli->query('SELECT * FROM gegevens WHERE username="'.$_SESSION['user_name'].'" AND email = "'.$_SESSION['user_email'].'"')->fetch_array(MYSQLI_ASSOC);
+    $personal_info = $mysqli->query('SELECT * FROM gegevens WHERE username="'.$user_id.'" AND email = "'.$user_email.'"')->fetch_array(MYSQLI_ASSOC);
   }
 } else {
-  $personal_info = $mysqli->query('SELECT * FROM gegevens WHERE username="'.$_SESSION['user_name'].'" AND email = "'.$_SESSION['user_email'].'"')->fetch_array(MYSQLI_ASSOC);
+  $personal_info = $mysqli->query('SELECT * FROM gegevens WHERE username="'.$user_id.'" AND email = "'.$user_email.'"')->fetch_array(MYSQLI_ASSOC);
 }
 ?>
 
@@ -49,8 +71,8 @@ if( isset($_GET['user']) ) {
       <dt>Naam</dt>
         <dd>
           <?php 
-            echo ($personal_info['name'] == "bouke" || $personal_info['name'] == "svenpopping") ? '<img src="../../images/crown-gold-icon.png" style="margin-top: -4px;" title="Administrator" alt="Administrator" /> ' : "";
-            echo ($personal_info['name'] == "Hiemstra" || $personal_info['name'] == "sietse") ? '<img src="../../images/crown-silver-icon.png" style="margin-top: -4px;" title="Overseer" alt="Overseer" /> ' : "";
+            echo ($personal_info['username'] == "bouke" || $personal_info['username'] == "svenpopping") ? '<img src="../library/images/crown-gold-icon.png" style="margin-top: -4px;" title="Administrator" alt="Administrator" /> ' : "";
+            echo ($personal_info['username'] == "Hiemstra" || $personal_info['username'] == "sietse") ? '<img src="../library/images/crown-silver-icon.png" style="margin-top: -4px;" title="Overseer" alt="Overseer" /> ' : "";
             echo ucwords($personal_info['name']) 
           ?>
         </dd>
