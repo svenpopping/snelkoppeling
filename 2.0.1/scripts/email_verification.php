@@ -10,7 +10,7 @@
     hebben wij elke extra features voor uw in petto. U kunt toegang krijgen tot deze features door op de onderstaande link te klikken.
 
     Klik op onderstaande link om toegang te krijgen tot de extra features:
-    http://localhost/snelkoppeling/2.0.1/register.php?verifyMail=true&verification_id="'.($person_id * 435472).'"
+    http:'.$main_path.'register.php?verifyMail=true&verification_id="'.($person_id * 435472).'"
 
     Team Snelkoppeling.info';
 

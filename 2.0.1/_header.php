@@ -25,17 +25,25 @@
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
       <meta http-equiv="cleartype" content="on" />
-      
-      
-
+        
         <title>De beste gratis dating matches uit jouw omgeving! | Snelkoppeling Dating</title> <!-- Pagina titel -->
     
-        <link rel="stylesheet" href="//localhost/snelkoppeling/2.0.1/library/css/style.css"> <!-- Laad de reset stylesheet. -->
-      <link rel="stylesheet" href="//localhost/snelkoppeling/2.0.1/library/css/snelkoppeling.css"> <!-- Laad de stylesheet. -->
+        <link rel="stylesheet" href="<?= $main_path ?>library/css/style.css"> <!-- Laad de reset stylesheet. -->
+        <link rel="stylesheet" href="<?= $main_path ?>library/css/snelkoppeling.css"> <!-- Laad de stylesheet. -->
         
         
-        <link rel="shortcut icon" href="//localhost/snelkoppeling/2.0.1/library/images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" href="//localhost/snelkoppeling/2.0.1/library/images/favicon.ico">
+        <link rel="shortcut icon" href="<?= $main_path ?>library/images/favicon.ico">
+        <link rel="stylesheet" href="<?= $main_path ?>2.0.1/library/css/get_matches.css">
+
+        <link rel="apple-touch-icon-precomposed" href="<?= $main_path ?>library/images/favicon.ico">
+
+      <script type="text/javascript" src="<?= $main_path ?>library/jquery/extends.js"></script>
+      <script type="text/javascript" src="//cdn.regner.us/js/head.js"></script>
+      <script type="text/javascript" src="<?= $main_path ?>library/jquery/jquery-2.0.2.min.js"></script>
+      <script type="text/javascript" src="<?= $main_path ?>library/jquery/jquery.bxslider.js"> </script>
+      <script type="text/javascript" src="<?= $main_path ?>library/jquery/jquery-te-1.4.0.min.js"> </script>
+      <script type="text/javascript" src="<?= $main_path ?>library/jquery/get_profile.js"></script>
+      
     <meta name="apple-mobile-web-app-title" content="Snelkoppeling">
     
     
@@ -54,14 +62,10 @@
     <meta property="og:title" content="De beste gratis matches uit jouw omgeving! | Snelkoppeling Dating" />
     <meta property="og:description" content="In jouw omgeving altijd gratis en snel de leukste dates bij Snelkoppeling Dating. De beste dating resultaten in jou eigen provincie." />
     <meta property="og:url" content="http://snelkoppeling.info" />
-    <meta property="og:image" content="//localhost/snelkoppeling/2.0.1/library/images/snelkoppeling_ogimage.png" />
+    <meta property="og:image" content="<?= $main_path ?>library/images/snelkoppeling_ogimage.png" />
     <meta property="og:site_name" content="Snelkoppeling" />
     
     <meta property="fb:app_id" content="248846045219138" />
-
-    <script type="text/javascript" src="//cdn.regner.us/js/head.js"></script>
-    <script type="text/javascript" src="//localhost/snelkoppeling/2.0.1/library/jquery/jquery-2.0.2.min.js"></script>
-    <script type="text/javascript" src="//localhost/snelkoppeling/2.0.1/library/jquery/jquery.bxslider.js"> </script>
     
     <!-- Google niet uiniet  tracker -->
     <script>window._gaq = [['_setAccount', 'UA-39994580-1'],['_trackPageview']];</script>
@@ -76,7 +80,7 @@
             <!-- Titel en logo afbeelding -->
             <h1>
               <a href="./" rel="home" title="De beste gratis matches uit jouw omgeving!">
-                <img src="//localhost/snelkoppeling/2.0.1/library/images/snelkoppeling-32.png" alt="Snelkoppeling" /> Snelkoppeling</a>
+                <img src="<?= $main_path ?>library/images/snelkoppeling-32.png" alt="Snelkoppeling" /> Snelkoppeling</a>
             </h1>
             <h5 class="tagline">De beste gratis matches uit jouw omgeving!</h5>
           </hgroup>       
@@ -87,8 +91,8 @@
             <!-- Wanneer een gebruiker is ingelogd een Loguit button geven en anders een Homepagina button -->
             <?php 
               if (isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] == 1) {
-                      echo '<a href="//localhost/snelkoppeling/2.0.1/login/index.php?logout" class="button">Uitloggen</a>';
-                  }
+                echo '<a href="'.$main_path.'login/index.php?logout" class="button" style="float: right;">Uitloggen</a>';
+              }
              ?>
           </nav>
         </div>

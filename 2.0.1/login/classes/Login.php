@@ -143,4 +143,17 @@ class Login
         // default return
         return false;
     }
+
+    /**
+     * simply return the current state of the user's login
+     * @return boolean user's login status
+     */
+    public function isAdminLoggedIn()
+    {
+        if (isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] == 1 AND isset($_SESSION['enable_admin']) AND $_SESSION['enable_admin'] == 1) {
+            return true;
+        }
+        // default return
+        return false;
+    }
 }

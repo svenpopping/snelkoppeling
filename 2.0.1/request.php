@@ -24,7 +24,7 @@ $(document).ready(function () {
     addPercentage(60);
     $.ajax({
       type: "POST",
-      url: "http://localhost/snelkoppeling/2.0.1/scripts/saves_personal_info.php",
+      url: "http:<?= $main_path ?>scripts/saves_personal_info.php",
       data: { age: age, state: state, orientation: orientation, gender: gender, name: name, email: email, user: user, password: password, ip: ip}
     }).done(function(text) {
       addPercentage(100);
@@ -38,23 +38,23 @@ $(document).ready(function () {
 
       $.ajax({
         type: "POST",
-        url: "http://localhost/snelkoppeling/2.0.1/scripts/saves_answers_info.php",
+        url: "http:<?= $main_path ?>scripts/saves_answers_info.php",
         data: { id: id, result: allInfo }
       }).done(function() {
         addPercentage(150);
         $.ajax({
           type: "GET",
-          url: "http://localhost/snelkoppeling/2.0.1/scripts/calculate_matches.php",
+          url: "http:<?= $main_path ?>scripts/calculate_matches.php",
           data: { person_id: id }
         }).done(function() {
           addPercentage(258);
           $.ajax({
             type: "GET",
-            url: "http://localhost/snelkoppeling/2.0.1/scripts/email_verification.php",
+            url: "http:<?= $main_path ?>scripts/email_verification.php",
             data: { person_id: id, email_adress: email, person_name: name}
           }).done(function() {
             setTimeout(function(){return true;}, 2000);
-            window.location.href = 'http://localhost/snelkoppeling/2.0.1/user_profile/';
+            window.location.href = 'http:<?= $main_path ?>2.0.1/user_profile/';
           });
         });
       });

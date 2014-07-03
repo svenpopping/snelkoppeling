@@ -27,7 +27,7 @@
   fieldset.prev-next ul li .progress-bar__container .progress {
   }
 </style>
-<script type="text/javascript" src="//localhost/snelkoppeling/2.0.1/library/jquery/question.js"></script>
+<script type="text/javascript" src="<?= $main_path ?>library/jquery/question.js"></script>
 
 <form enctype="multipart/form-data" action="../request.php" method="POST" class="questions-form">
   <ul class="bxslider">

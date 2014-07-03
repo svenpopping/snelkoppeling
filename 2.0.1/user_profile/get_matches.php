@@ -1,26 +1,34 @@
 <?php
   require_once("../login/classes/Login.php");
+  require_once('../config.php');
+
+  // Check if user logged in
   $login = new Login();
 
-  // if ($login->isUserLoggedIn() == false) {
-  //  header("Location: //localhost/snelkoppeling/2.0.1/");
-  // }
+  if ($login->isUserLoggedIn() == false) {
+    header("Location: ".$main_path);
+  }
 
-  require_once('../config.php');
-  // First drop the existing view
-  $mysqli->query("DROP VIEW select_all_matches") or die($mysqli->error);
+  // Enanble for admins to see other peoples matches
+  if(isset($_SESSION['enable_admin']) && $_SESSION['enable_admin'] === 1) {
+    if(isset($_REQUEST['get_matches'])) {
+      $user_id = $_REQUEST['person_id'];
+    } else {
+      $user_id = $_SESSION['user_id'];
+    }
+  } else {
+    $user_id = $_SESSION['user_id'];
+  }
 
-  $_SESSION['user_id'] = 5;
-
-  // The query to create a new view
+  // The query to create a new view with all the matches of the user
   $create_view_select_all_match_ids_query = "CREATE VIEW select_all_matches AS
                         SELECT matches.B AS match_id, matches.match
                           FROM matches
-                            WHERE A = '".$_SESSION['user_id']."'
+                            WHERE A = '".$user_id."'
                         UNION ALL
                         SELECT matches.A AS match_id, matches.match
                           FROM matches
-                            WHERE B = '".$_SESSION['user_id']."'
+                            WHERE B = '".$user_id."'
                         ORDER BY `match` DESC";
   // Execute query to create view
   $mysqli->query($create_view_select_all_match_ids_query) or die($mysqli->error);
@@ -31,13 +39,16 @@
   } else {
     $get_matches_query = "SELECT * FROM gegevens INNER JOIN select_all_matches ON gegevens.id = select_all_matches.match_id LIMIT 0, 10";
   }
+
+  // Execute query
   $get_matches = $mysqli->query($get_matches_query) or die($mysqli->error);
+
+  // Drop view
+  $mysqli->query("DROP VIEW select_all_matches") or die($mysqli->error);
   ?>
 
-  <link rel="stylesheet" href="../library/css/get_matches.css">
-
-  <script type="text/javascript" src="//localhost/snelkoppeling/2.0.1/library/jquery/jquery.bxslider.js"> </script>
-  <script type="text/javascript" src="//localhost/snelkoppeling/2.0.1/library/jquery/get_matches.js"></script>
+  <script type="text/javascript" src="<?= $main_path ?>library/jquery/jquery.bxslider.js"> </script>
+  <script type="text/javascript" src="<?= $main_path ?>library/jquery/get_matches.js"></script>
 
   <h3 id="matches">Snelkoppeling Matches <var class="score"><?= $get_matches->num_rows; ?></var></h3>
   
@@ -54,13 +65,14 @@
       ?>
       <div class="all">
         <dt class="name">
-          <?= (isset($_SESSION['verified']) AND $_SESSION['verified'] == 1) ? '<a data-href="http://localhost/snelkoppeling/2.0.1/user_profile/get_profile.php?user='.urlencode($matches['username']).'">' : ""; ?>
+          <?= (isset($_SESSION['verified']) AND $_SESSION['verified'] == 1) ? '<a data-href="http:'.$main_path.'user_profile/get_profile.php?user='.urlencode($matches['username']).'">' : ""; ?>
           <?= ($i).". " ?>
-            <?= ($matches['username'] == "bouke" || $matches['username'] == "svenpopping") ? '<img src="../images/crown-gold-icon.png" style="margin-top: -4px;" title="Administrator" alt="Administrator" /> ' : "" ?>
-            <?= ($matches['username'] == "Hiemstra" || $matches['username'] == "sietse") ? '<img src="../images/crown-silver-icon.png" style="margin-top: -4px;" title="Overseer" alt="Overseer" /> ' : ""; ?>
+            <?= ($matches['username'] == "bouke" || $matches['username'] == "svenpopping") ? '<img src="../library/images/crown-gold-icon.png" style="margin-top: -4px;" title="Administrator" alt="Administrator" /> ' : "" ?>
+            <?= ($matches['username'] == "Hiemstra" || $matches['username'] == "sietse") ? '<img src="../library/images/crown-silver-icon.png" style="margin-top: -4px;" title="Overseer" alt="Overseer" /> ' : ""; ?>
           
           <?= ucwords($matches['name']); ?>
           <?= (isset($_SESSION['verified']) AND $_SESSION['verified'] == 1) ? '</a>' : ""; ?>
+          <?= (isset($_SESSION['enable_admin']) AND $_SESSION['enable_admin'] == 1) ? '<a href="http:'.$main_path.'user_profile/?user='.urlencode($matches['username']).'&person_id='.$matches['id'].'">=></a>' : ""; ?>
         </dt>
         <dd class="matches">
           <?php echo ($matches['picture'] != "") ? '<a href="//snelkoppeling.info/server/_/large/'.$matches['picture'].'" class="view"><img src="//snelkoppeling.info/server/_/thumbnail/'.$matches['picture'].'" alt="'.$matches['name'].'" class="profile-picture-small" /></a>' : '<img src="//snelkoppeling.info/images/nopicture_thumbnail.jpg" alt="Onbekend" class="profile-picture-small" />'

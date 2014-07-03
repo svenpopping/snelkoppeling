@@ -9,7 +9,7 @@ foreach ($requiredInput as $key => $value) {
 }
 
 $query = 'INSERT INTO  `snelkoppeling`.`gegevens` (
-		`age` ,`state` ,`sexse` ,`gender` ,`name` ,`email` ,`username` ,`password` ,`ip` ,`admin`)
+		`age` ,`state` ,`sexse` ,`gender` ,`name` ,`email` ,`username` ,`password` ,`ip` ,`admin`, `about_me`)
 		VALUES (
 			"'.clean($_POST['age']).'",  
 			"'.clean($_POST['state']).'",  
@@ -20,7 +20,8 @@ $query = 'INSERT INTO  `snelkoppeling`.`gegevens` (
 			"'.clean($_POST['user']).'",  
 			"'.clean(password_hash($_POST['password'], PASSWORD_DEFAULT)).'",
 			"'.clean($_POST['ip']).'",  
-			0
+			0,
+			"Vertel iets over jezelf..."
 		)';
 
 $mysqli->query($query) or die($mysqli->error);
