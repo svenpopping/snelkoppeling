@@ -10,11 +10,6 @@
       </div>  
       
       <!-- Laden van alle Javascript code -->
-      <script type="text/javascript" src="<?= $main_path ?>library/jquery/extends.js"></script>
-      <script type="text/javascript" src="//cdn.regner.us/js/head.js"></script>
-      <script type="text/javascript" src="<?= $main_path ?>library/jquery/jquery-2.0.2.min.js"></script>
-      <script type="text/javascript" src="<?= $main_path ?>library/jquery/jquery.bxslider.js"> </script>
-      <script type="text/javascript" src="<?= $main_path ?>library/jquery/jquery-te-1.4.0.min.js"> </script>
-      <script type="text/javascript" src="<?= $main_path ?>library/jquery/get_profile.js"></script>
+      
     </body>
 </html>

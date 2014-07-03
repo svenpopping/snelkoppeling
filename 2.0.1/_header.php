@@ -35,7 +35,15 @@
         <link rel="shortcut icon" href="<?= $main_path ?>library/images/favicon.ico">
         <link rel="stylesheet" href="<?= $main_path ?>2.0.1/library/css/get_matches.css">
 
-    <link rel="apple-touch-icon-precomposed" href="<?= $main_path ?>library/images/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" href="<?= $main_path ?>library/images/favicon.ico">
+
+      <script type="text/javascript" src="<?= $main_path ?>library/jquery/extends.js"></script>
+      <script type="text/javascript" src="//cdn.regner.us/js/head.js"></script>
+      <script type="text/javascript" src="<?= $main_path ?>library/jquery/jquery-2.0.2.min.js"></script>
+      <script type="text/javascript" src="<?= $main_path ?>library/jquery/jquery.bxslider.js"> </script>
+      <script type="text/javascript" src="<?= $main_path ?>library/jquery/jquery-te-1.4.0.min.js"> </script>
+      <script type="text/javascript" src="<?= $main_path ?>library/jquery/get_profile.js"></script>
+      
     <meta name="apple-mobile-web-app-title" content="Snelkoppeling">
     
     
