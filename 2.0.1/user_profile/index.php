@@ -1,9 +1,10 @@
 <?php
 require_once("../login/classes/Login.php");
+require_once("../config.php");
 $login = new Login();
 
 if ($login->isUserLoggedIn() == false) {
-  header("Location: //localhost/snelkoppeling/2.0.1/");
+  header("Location: ".$main_path);
 }
 
 require_once('../_header.php');
@@ -22,8 +23,8 @@ echo '<div role="alert" class="info"><strong>Let op!</strong><small>E-mails vers
     var person_id = "<?= (isset($_GET['person_id'])) ? '?person_id='.$_GET['person_id'].'&get_matches=true' : ''; ?>";
     var user = "<?= (isset($_GET['user'])) ? '?user='.$_GET['user'].'&get_profile=true' : ''; ?>";
     
-    var url_profile = "http://localhost/snelkoppeling/2.0.1/user_profile/get_profile.php" + user;
-    var url_matches = "http://localhost/snelkoppeling/2.0.1/user_profile/get_matches.php" + person_id;
+    var url_profile = "<?= $main_path ?>user_profile/get_profile.php" + user;
+    var url_matches = "<?= $main_path ?>user_profile/get_matches.php" + person_id;
 
     $("#columns__profile").load(url_profile, function(response, status, xhr) {
       if (status == "error") {

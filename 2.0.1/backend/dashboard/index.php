@@ -1,9 +1,11 @@
 <?php
   require_once("../../login/classes/Login.php");
+  require_once("../../config.php");
+  
   $login = new Login();
 
   if ($login->isAdminLoggedIn() == false) {
-    header("Location: //localhost/snelkoppeling/2.0.1/");
+    header("Location: ".$main_path);
   }
 
   require_once("../../_header.php");

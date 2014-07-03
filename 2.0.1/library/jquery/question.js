@@ -44,7 +44,7 @@ $(document).ready(function() {
 		var username = check.toLowerCase();
 		var isAlreadyUsed = null;
 
-		var jqxhr = $.getJSON("http://localhost/snelkoppeling/2.0.1/library/json/username.json.php", function(json) {
+		var jqxhr = $.getJSON("http:<?= $main_path ?>library/json/username.json.php", function(json) {
 	 		$.each(json.results,function(i,result){
 	 			var used = result.id;
 	 			if(username == used){

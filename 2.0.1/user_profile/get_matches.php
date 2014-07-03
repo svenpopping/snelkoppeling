@@ -6,7 +6,7 @@
   $login = new Login();
 
   if ($login->isUserLoggedIn() == false) {
-    header("Location: //localhost/snelkoppeling/2.0.1/");
+    header("Location: ".$main_path);
   }
 
   // Enanble for admins to see other peoples matches
@@ -47,8 +47,8 @@
   $mysqli->query("DROP VIEW select_all_matches") or die($mysqli->error);
   ?>
 
-  <script type="text/javascript" src="//localhost/snelkoppeling/2.0.1/library/jquery/jquery.bxslider.js"> </script>
-  <script type="text/javascript" src="//localhost/snelkoppeling/2.0.1/library/jquery/get_matches.js"></script>
+  <script type="text/javascript" src="<?= $main_path ?>library/jquery/jquery.bxslider.js"> </script>
+  <script type="text/javascript" src="<?= $main_path ?>library/jquery/get_matches.js"></script>
 
   <h3 id="matches">Snelkoppeling Matches <var class="score"><?= $get_matches->num_rows; ?></var></h3>
   
@@ -65,14 +65,14 @@
       ?>
       <div class="all">
         <dt class="name">
-          <?= (isset($_SESSION['verified']) AND $_SESSION['verified'] == 1) ? '<a data-href="http://localhost/snelkoppeling/2.0.1/user_profile/get_profile.php?user='.urlencode($matches['username']).'">' : ""; ?>
+          <?= (isset($_SESSION['verified']) AND $_SESSION['verified'] == 1) ? '<a data-href="http:'.$main_path.'user_profile/get_profile.php?user='.urlencode($matches['username']).'">' : ""; ?>
           <?= ($i).". " ?>
             <?= ($matches['username'] == "bouke" || $matches['username'] == "svenpopping") ? '<img src="../library/images/crown-gold-icon.png" style="margin-top: -4px;" title="Administrator" alt="Administrator" /> ' : "" ?>
             <?= ($matches['username'] == "Hiemstra" || $matches['username'] == "sietse") ? '<img src="../library/images/crown-silver-icon.png" style="margin-top: -4px;" title="Overseer" alt="Overseer" /> ' : ""; ?>
           
           <?= ucwords($matches['name']); ?>
           <?= (isset($_SESSION['verified']) AND $_SESSION['verified'] == 1) ? '</a>' : ""; ?>
-          <?= (isset($_SESSION['enable_admin']) AND $_SESSION['enable_admin'] == 1) ? '<a href="http://localhost/snelkoppeling/2.0.1/user_profile/?user='.urlencode($matches['username']).'&person_id='.$matches['id'].'">=></a>' : ""; ?>
+          <?= (isset($_SESSION['enable_admin']) AND $_SESSION['enable_admin'] == 1) ? '<a href="http:'.$main_path.'user_profile/?user='.urlencode($matches['username']).'&person_id='.$matches['id'].'">=></a>' : ""; ?>
         </dt>
         <dd class="matches">
           <?php echo ($matches['picture'] != "") ? '<a href="//snelkoppeling.info/server/_/large/'.$matches['picture'].'" class="view"><img src="//snelkoppeling.info/server/_/thumbnail/'.$matches['picture'].'" alt="'.$matches['name'].'" class="profile-picture-small" /></a>' : '<img src="//snelkoppeling.info/images/nopicture_thumbnail.jpg" alt="Onbekend" class="profile-picture-small" />'

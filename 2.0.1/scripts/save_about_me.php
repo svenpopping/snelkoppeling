@@ -4,7 +4,7 @@ require_once("../login/classes/Login.php");
 $login = new Login();
 
 if ($login->isUserLoggedIn() == false) {
-  header("Location: //localhost/snelkoppeling/2.0.1/");
+  header("Location: ".$main_path);
 }
 
 if(isset($_REQUEST['about_me'])) {

@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     $.ajax({
       type: "GET",
-      url: "http://localhost/snelkoppeling/2.0.1/scripts/save_about_me.php",
+      url: "http:<?= $main_path ?>scripts/save_about_me.php",
       data: { about_me: text }
     }).done(function() {
       console.log('SAVED');

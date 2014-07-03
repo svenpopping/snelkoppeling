@@ -17,7 +17,7 @@ $(document).ready(function (){
 				console.log(msg + xhr.status + " " + xhr.statusText);
 			}
 		});
-		$("#columns__matches").load("http://localhost/snelkoppeling/2.0.1/user_profile/message/", function(response, status, xhr) {
+		$("#columns__matches").load("http:<?= $main_path ?>user_profile/message/", function(response, status, xhr) {
 			if (status == "error") {
 				var msg = "Sorry but there was an error: ";
 				console.log(msg + xhr.status + " " + xhr.statusText);
@@ -27,14 +27,14 @@ $(document).ready(function (){
 	});
 
 	$('a.back').click(function() {
-		$("#columns__profile").load("http://localhost/snelkoppeling/2.0.1/user_profile/get_profile.php", function(response, status, xhr) {
+		$("#columns__profile").load("http:<?= $main_path ?>user_profile/get_profile.php", function(response, status, xhr) {
 			if (status == "error") {
 				var msg = "Sorry but there was an error: ";
 				console.log(msg + xhr.status + " " + xhr.statusText);
 			}
 		});
 
-		$("#columns__matches").load("http://localhost/snelkoppeling/2.0.1/user_profile/get_matches.php", function(response, status, xhr) {
+		$("#columns__matches").load("http:<?= $main_path ?>user_profile/get_matches.php", function(response, status, xhr) {
 			if (status == "error") {
 				var msg = "Sorry but there was an error: ";
 				console.log(msg + xhr.status + " " + xhr.statusText);
